@@ -21,6 +21,8 @@ services:
 
   db:
     image: mysql:8
+    volumes:
+      - db_data:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
@@ -32,8 +34,6 @@ services:
     networks:
       backend:
         ipv4_address: 172.20.0.10
-    ports: 
-      - "3306:3306"
 
 
 networks:
